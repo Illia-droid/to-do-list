@@ -1,0 +1,7 @@
+const TYPES = {
+  CREATE_TASK: "CREATE_TASK",
+  DELETE_TASK: "DELETE_TASK",
+  IS_DONE_TASK: "IS_DONE_TASK",
+  FILTERED: "FILTERED",
+};
+export default TYPES;
