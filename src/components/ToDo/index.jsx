@@ -20,7 +20,6 @@ const ToDo = () => {
           selectedFilter={state.selectedFilter}
         />
       </div>
-
       <TasksList
         tasks={state.tasks}
         selectedFilter={state.selectedFilter}
