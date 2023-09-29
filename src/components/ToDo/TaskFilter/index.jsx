@@ -1,5 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import styles from "./TaskFilter.module.scss";
+
 const TaskFilter = ({ selectedFilter, handleTasksFilter }) => {
   return (
     <div>
@@ -15,4 +18,8 @@ const TaskFilter = ({ selectedFilter, handleTasksFilter }) => {
   );
 };
 
+TaskFilter.propTypes = {
+  selectedFilter: PropTypes.string.isRequired,
+  handleTasksFilter: PropTypes.func.isRequired,
+};
 export default TaskFilter;

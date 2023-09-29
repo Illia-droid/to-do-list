@@ -1,9 +1,10 @@
 import React from "react";
+import PropTypes from "prop-types";
 import cx from "classnames";
+
 import DeleteIcon from "@mui/icons-material/Delete";
 
 import styles from "./Task.module.scss";
-// import PropTypes from "prop-types";
 
 const Task = ({
   task: { id, body, isDone, startDate },
@@ -35,6 +36,15 @@ const Task = ({
   );
 };
 
-Task.propTypes = {};
+Task.propTypes = {
+  task: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    body: PropTypes.string.isRequired,
+    isDone: PropTypes.bool.isRequired,
+    startDate: PropTypes.string.isRequired,
+  }).isRequired,
+  deleteTask: PropTypes.func.isRequired,
+  isDoneTask: PropTypes.func.isRequired,
+};
 
 export default Task;
