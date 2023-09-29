@@ -1,0 +1,25 @@
+@use "/src/common/styles/colors" as *;
+@use "/src/common/styles/dimensions" as *;
+
+.toDoSection {
+  min-width: 400px;
+  background: linear-gradient(90deg, $leftGradientColor, $rightGradientColor);
+  border-bottom: 10px solid $rightGradientColor;
+  color: $whiteColor;
+}
+.heading {
+  padding-top: $spacing;
+  font-size: 2.5rem;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+}
+.adderTasksWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 2 * $spacing;
+}
+
+@media screen and (max-width: 468px) {
+  .adderTasksWrapper {
+    margin-top: $spacing;
+  }
+}

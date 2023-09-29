@@ -1,0 +1,28 @@
+@use "/src/common/styles/dimensions" as *;
+@use "/src/common/styles/colors" as *;
+
+.adderTasksWrapper {
+  display: flex;
+}
+.btnSubmit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: $toolsHeight;
+  width: $toolsHeight;
+  background-color: $whiteColor;
+}
+.inputForBody {
+  width: 25vw;
+  min-width: 200px;
+  height: $toolsHeight;
+  position: relative;
+}
+.error {
+  background-color: $bgInputError;
+  color: $whiteColor;
+}
+.errMessage {
+  background-color: $bgErrorMessage;
+  position: absolute;
+}

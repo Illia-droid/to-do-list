@@ -1,0 +1,27 @@
+@use "/src/common/styles/dimensions" as *;
+@use "/src/common/styles/colors" as *;
+
+.select {
+  width: 15vw;
+  min-width: 200px;
+  height: $toolsHeight;
+  margin-left: 20px;
+  padding: 10px 20px;
+  background-color: $whiteColor;
+  background-image: url("arrow.svg");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: $toolsHeight $toolsHeight;
+  appearance: none;
+  > * {
+    text-align: start;
+  }
+}
+
+@media screen and (max-width: 468px) {
+  .select {
+    margin-left: 0;
+    min-width: 0px;
+    width: 0;
+  }
+}

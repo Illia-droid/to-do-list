@@ -1,0 +1,46 @@
+@use "/src/common/styles/dimensions" as *;
+@use "/src/common/styles/colors" as *;
+
+.task {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  > strong {
+    display: flex;
+    align-items: center;
+    min-width: 200px;
+    width: 20vw;
+    padding: 10px;
+    background-color: $whiteColor;
+    color: $textColor;
+    text-align: start;
+  }
+}
+
+.isDoneCheckbox,
+.btnDelete {
+  width: $toolsHeight;
+  height: $toolsHeight;
+}
+.isDoneCheckbox {
+  appearance: none;
+  background-color: #5c7cc7;
+  background-image: url("check-mark.svg");
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: $whiteColor;
+}
+.btnDelete {
+  background-color: $deleteBntColor;
+  color: $whiteColor;
+}
+
+.stylesDone {
+  > strong {
+    text-decoration: line-through;
+  }
+  > * {
+    opacity: 0.5;
+  }
+}
