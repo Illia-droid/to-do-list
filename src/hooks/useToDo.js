@@ -1,15 +1,23 @@
 import { useEffect, useReducer } from "react";
 import TYPES from "../components/ToDo/actionTypes";
 import reducer from "../components/ToDo/reducer";
+import useLocalStorageForToDo from "./useLocalStorageForToDo";
 
 const useToDo = () => {
-  const [state, dispatch] = useReducer(reducer, {
-    tasks: getTasksFromLocalStorage(),
-    selectedFilter: "all",
-  });
+  const { saveTasksToLocalStorage, getTasksFromLocalStorage } =
+    useLocalStorageForToDo();
+
+  const [state, dispatch] = useReducer(
+    //передаю функцію saveTasksToLocalStorage з кастомного хука аргументом в reducer
+    (state, action) => reducer(state, action, saveTasksToLocalStorage),
+    {
+      tasks: getTasksFromLocalStorage(),
+      selectedFilter: "all",
+    }
+  );
 
   useEffect(() => {
-    saveTasksToLocalStorage(state.tasks);
+    saveTasksToLocalStorage(state.tasks); // eslint-disable-next-line
   }, [state.tasks]);
 
   const addTask = ({ body }) => {
@@ -26,15 +34,6 @@ const useToDo = () => {
   const handleTasksFilter = ({ target }) => {
     dispatch({ type: TYPES.FILTERED, payload: target.value });
   };
-
-  function getTasksFromLocalStorage() {
-    const storedTasks = localStorage.getItem("tasks");
-    return storedTasks ? JSON.parse(storedTasks) : [];
-  }
-
-  function saveTasksToLocalStorage(tasks) {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-  }
 
   return { state, addTask, deleteTask, isDoneTask, handleTasksFilter };
 };

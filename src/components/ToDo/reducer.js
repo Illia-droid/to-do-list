@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import TYPES from "./actionTypes";
 import { format } from "date-fns";
 
-const reducer = (state, action) => {
+const reducer = (state, action, saveTasksToLocalStorage) => {
   switch (action.type) {
     case TYPES.CREATE_TASK: {
       const {
@@ -52,10 +52,6 @@ const reducer = (state, action) => {
       return { ...state, selectedFilter: action.payload };
     default:
       return state;
-  }
-
-  function saveTasksToLocalStorage(tasks) {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
   }
 };
 export default reducer;

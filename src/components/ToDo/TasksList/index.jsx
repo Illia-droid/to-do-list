@@ -1,5 +1,6 @@
 import React from "react";
 import Task from "../Task";
+import styles from "./TasksList.module.scss";
 
 const TasksList = ({ tasks, selectedFilter, deleteTask, isDoneTask }) => {
   const renderTasks = (task) => {
@@ -35,7 +36,7 @@ const TasksList = ({ tasks, selectedFilter, deleteTask, isDoneTask }) => {
     return null;
   };
 
-  return <ul>{tasks.map(renderTasks)}</ul>;
+  return <ul className={styles.tasksGroup}>{tasks.map(renderTasks)}</ul>;
 };
 
 export default TasksList;

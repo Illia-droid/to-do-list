@@ -1,3 +1,13 @@
 * {
+  padding: 0;
+  margin: 0;
+  outline: none;
+  border: none;
   box-sizing: border-box;
+  text-align: center;
+  font-size: 1.2rem;
+  font-family: sans-serif;
+}
+li {
+  text-decoration: none;
 }
