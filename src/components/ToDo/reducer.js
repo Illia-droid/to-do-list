@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import TYPES from "./actionTypes";
 import { format } from "date-fns";
 
-const reducer = (state, action, saveTasksToLocalStorage) => {
+const reducer = (state, action) => {
   switch (action.type) {
     case TYPES.CREATE_TASK: {
       const {
@@ -16,7 +16,6 @@ const reducer = (state, action, saveTasksToLocalStorage) => {
         startDate: format(new Date(), "MM/dd hh:mm:ss "),
       };
       const newTasks = [...state.tasks, newTask];
-      saveTasksToLocalStorage(newTasks);
       return {
         ...state,
         tasks: newTasks,
@@ -28,7 +27,6 @@ const reducer = (state, action, saveTasksToLocalStorage) => {
         payload: { id },
       } = action;
       const updatedTasks = state.tasks.filter((task) => task.id !== id);
-      saveTasksToLocalStorage(updatedTasks);
       return {
         ...state,
         tasks: updatedTasks,
@@ -42,7 +40,6 @@ const reducer = (state, action, saveTasksToLocalStorage) => {
       const toggledTasks = state.tasks.map((task) =>
         task.id === id ? { ...task, isDone: !task.isDone } : { ...task }
       );
-      saveTasksToLocalStorage(toggledTasks);
       return {
         ...state,
         tasks: toggledTasks,

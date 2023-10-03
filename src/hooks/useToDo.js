@@ -8,8 +8,7 @@ const useToDo = () => {
     useLocalStorageForToDo();
 
   const [state, dispatch] = useReducer(
-    //передаю функцію saveTasksToLocalStorage з кастомного хука аргументом в reducer
-    (state, action) => reducer(state, action, saveTasksToLocalStorage),
+    (state, action) => reducer(state, action),
     {
       tasks: getTasksFromLocalStorage(),
       selectedFilter: "all",
